@@ -1,1 +1,0 @@
-# asirweb-wordpress-theme

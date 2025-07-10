@@ -1,0 +1,133 @@
+/*
+Theme Name: AsirWeb Theme
+Description: A custom WordPress theme for AsirWeb – Digital Marketing, Web Development & Maintenance.
+Version: 1.0
+Author: AsirWeb Team
+Text Domain: asirweb
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+:root {
+  --primary-color: #0073e6;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0073e6, #00c6ff);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #ff6b00;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.service-item {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .service-grid {
+    flex-direction: column;
+  }
+}
+.pricing-table {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plan {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.plan.featured {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.plan .price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.plan ul li {
+  margin-bottom: 10px;
+}
+
+.team-member {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.team-member img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.team-member .position {
+  font-style: italic;
+  color: #666;
+}
