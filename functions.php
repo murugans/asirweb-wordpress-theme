@@ -24,11 +24,6 @@ function asirweb_elementor_support() {
 }
 add_action('after_setup_theme', 'asirweb_elementor_support');
 
-function asirweb_register_elementor_widgets($widgets_manager) {
-    require_once get_template_directory() . '/includes/elementor-widgets.php';
-}
-add_action('elementor/widgets/register', 'asirweb_register_elementor_widgets');
-
 function asirweb_testimonials_shortcode() {
     ob_start();
     $testimonials = new WP_Query([
@@ -125,30 +120,20 @@ function asirweb_portfolio_shortcode() {
 }
 add_shortcode('asirweb_portfolio', 'asirweb_portfolio_shortcode');
 
-
 function asirweb_register_elementor_widgets($widgets_manager) {
-    require_once get_template_directory() . '/includes/elementor-testimonial-widget.php';
-    $widgets_manager->register(new \AsirWeb_Testimonial_Widget());
-}
-add_action('elementor/widgets/register', 'asirweb_register_elementor_widgets');
+    // Ensure the base file for widgets is loaded if it exists and is needed.
+    // It seems like individual widget files are being loaded directly.
+    // require_once get_template_directory() . '/includes/elementor-widgets.php';
 
-function asirweb_register_elementor_widgets($widgets_manager) {
-    require_once get_template_directory() . '/includes/elementor-testimonial-widget.php';
-    require_once get_template_directory() . '/includes/elementor-portfolio-widget.php';
-    $widgets_manager->register(new \AsirWeb_Testimonial_Widget());
-    $widgets_manager->register(new \AsirWeb_Portfolio_Widget());
-}
-add_action('elementor/widgets/register', 'asirweb_register_elementor_widgets');
-
-function asirweb_register_elementor_widgets($widgets_manager) {
     require_once get_template_directory() . '/includes/elementor-testimonial-widget.php';
     require_once get_template_directory() . '/includes/elementor-portfolio-widget.php';
     require_once get_template_directory() . '/includes/elementor-team-widget.php';
+
     $widgets_manager->register(new \AsirWeb_Testimonial_Widget());
     $widgets_manager->register(new \AsirWeb_Portfolio_Widget());
     $widgets_manager->register(new \AsirWeb_Team_Widget());
 }
-add_action('elementor/widgets/register', 'asirweb_register_elementor_widgets');
+add_action('elementor/widgets/register', 'asirweb_register_elementor_widgets', 10, 1);
 
 function asirweb_pricing_shortcode() {
     ob_start(); ?>
